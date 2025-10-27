@@ -1,11 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-</body>
+  <body>
+    <div id="winamp-container"></div>
+    <div id="main-container">
+      <h1>contact.fm</h1>
+      <div class="node" id="node1">
+        <div class="glowing-orb"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      import Webamp from "https://unpkg.com/webamp@^2/butterchurn";
+      const webamp = new Webamp({
+        // Optional. An array of objects representing skins.
+        // These will appear in the "Options" menu under "Skins".
+        // NOTE: These URLs must be served with the correct CORs headers.
+        // https://docs.webamp.org/docs/guides/cors
+        //
+        // These will appear in the dropdown menu under "Skins".
+        availableSkins: [
+          {
+            url: "https://archive.org/cors/winampskin_Zelda_Amp/Zelda-Amp.wsz",
+            name: "Zelda Amp",
+          },
+          {
+            url: "https://archive.org/cors/winampskin_mac_os_x_1_5-aqua/mac_os_x_1_5-aqua.wsz",
+            name: "Mac OSX v1.5 (Aqua)",
+          },
+        ],
+        initialSkin: {
+          url: "/assets/Windows_Classic.wsz",
+        },
+        initialTracks: [
+          {
+            metaData: {
+              artist: "DJ Mike Llama",
+              title: "Llama Whippin' Intro",
+            },
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+            url: "https://cdn.jsdelivr.net/gh/captbaritone/webamp@43434d82cfe0e37286dbbe0666072dc3190a83bc/mp3/llama-2.91.mp3",
+            duration: 5.322286,
+          },
+          {
+            metaData: {
+              artist: "me",
+              title: "Stedelijk",
+            },
+            url: "https://files.catbox.moe/cnwk8d.mp3",
+          },
+          {
+            metaData: {
+              artist: "Me",
+              title: "Spuistraat",
+            },
+            url: "https://files.catbox.moe/jdxu6e.mp3",
+          },
+          {
+            metaData: {
+              artist: "Me",
+              title: "Spuistraat",
+            },
+            url: "https://files.catbox.moe/fvflac.mp3",
+          },
+        ],
+        windowLayout: {
+          main: {
+            position: { bottom: 28, left: 0 },
+            shadeMode: true,
+            closed: false,
+          },
+          equalizer: {
+            position: { bottom: 230, left: 0 },
+            shadeMode: true,
+            closed: false,
+          },
+          playlist: {
+            position: { bottom: 0, left: 0 },
+            shadeMode: false,
+            size: { extraHeight: 3, extraWidth: 11 },
+            closed: false,
+          },
+          milkdrop: {
+            position: { bottom: 240, left: 0 },
+            shadeMode: false,
+            closed: false,
+          },
+        },
+        enableDoubleSizeMode: false,
+      });
+
+      // Returns a promise indicating when it's done loading.
+      webamp.renderWhenReady(document.getElementById("winamp-container"));
+    </script>
+  </body>
 </html>

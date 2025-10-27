@@ -1,0 +1,26 @@
+body{
+    background-color: #bec1d5;
+    margin: 20px;
+}
+#main-container{
+    height: 100vh; 
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    letter-spacing: .25em;
+}
+.glowing-orb {
+  width: 50px;
+  height: 50px;
+  background-color: #98b53f; /* Base color of the orb */
+  border-radius: 50%; /* Makes it a circle */
+  box-shadow:
+    0 0 20px 5px rgba(178, 215, 66, 0.7), /* Outer glow */
+    0 0 40px 10px rgba(226, 219, 125, 0.5),
+    inset 0 0 25px rgba(244, 255, 163, 0.5); /* Inner highlight */
+  position: absolute; /* For positioning if needed */
+  top: 10%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}

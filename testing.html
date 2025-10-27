@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+    <style src="/style.css"></style>
+  </head>
+
+  <body>
+    <div
+      style="
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+      "
+    >
+      <div id="winamp-container"></div>
+      <script>
+        const Winamp = window.Webamp;
+        // All configuration options are optional.
+        const webamp = new Webamp({
+          // Optional.
+          initialTracks: [
+            {
+              metaData: {
+                artist: "me",
+                title: "Stedelijk",
+              },
+              url: "https://files.catbox.moe/cnwk8d.mp3",
+            },
+            {
+              metaData: {
+                artist: "Me",
+                title: "Spuistraat",
+              },
+              url: "https://files.catbox.moe/jdxu6e.mp3",
+            },
+            {
+              metaData: {
+                artist: "Me",
+                title: "Spuistraat",
+              },
+              url: "https://files.catbox.moe/fvflac.mp3",
+            },
+          ],
+          initialSkin: {
+            url: "https://archive.org/cors/winampskin_Zelda_Amp/Zelda-Amp.wsz/",
+          },
+        });
+
+        webamp.renderWhenReady(document.getElementById("winamp-container"));
+      </script>
+    </div>
+  </body>
+</html>
